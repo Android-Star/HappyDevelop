@@ -2,13 +2,15 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.example.wilsonhan.happydevelop"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
     buildTypes {
         release {
@@ -16,13 +18,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {//加上这写代码
+        pickFirst 'META-INF/*'
+    }
+}
+
+repositories {
+    google()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation project(':common')
+    //图表
+//    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    //recyclerview adapger框架
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+//    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
+//    implementation "com.github.yjfnypeu:UpdatePlugin:3.0.3"
 }
