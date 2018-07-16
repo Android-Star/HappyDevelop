@@ -32,4 +32,29 @@ public interface ApiService {
 //    @FormUrlEncoded
 //    Observable<DataResponse<User>> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
 
+    /**
+     * 调用：
+     * RetrofitManager.createModel(ApiService.class)
+     .getDoctorFastPhoneDetailById(id)
+     .compose(mView.<RequestResBean<String>>bindToLife())
+     .compose(RxSchedulers.<RequestResBean<String>>applySchedulers())
+     .compose(new ErrorTransformer<String>())
+     .subscribe(new GiraffeObserver<String>() {
+    @Override public void onNext(String s) {
+
+    }
+
+    @Override protected void hideDialog() {
+
+    }
+
+    @Override protected void showDialog() {
+
+    }
+
+    @Override public void onError(ExceptionHandler.ResponseThrowable e) {
+
+    }
+    });
+     */
 }
