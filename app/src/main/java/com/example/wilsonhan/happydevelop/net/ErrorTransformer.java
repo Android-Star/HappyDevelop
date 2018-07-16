@@ -15,7 +15,7 @@ public class ErrorTransformer<T> implements ObservableTransformer {
             //response中code码不会0 出现错误
             if (!tRetrofitResBean.isOk())
                 throw new RuntimeException(tRetrofitResBean.getStatus() + "" + tRetrofitResBean.getReturn_msg() != null ? tRetrofitResBean.getReturn_msg() : "");
-            return tRetrofitResBean.getResult();
+            return tRetrofitResBean.getResult() == null ? (T) "" : tRetrofitResBean.getResult();
         }
     };
 

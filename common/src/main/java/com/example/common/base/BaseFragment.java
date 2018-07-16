@@ -21,6 +21,8 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import butterknife.ButterKnife;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * des:基类fragment
@@ -65,6 +67,7 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
     public E mModel;
     public RxManager mRxManager;
     protected QMUITipDialog tipDialog;
+    private CompositeDisposable mCompositeDisposable;
 
     @Nullable
     @Override
@@ -243,6 +246,26 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
         }
     }
 
+
+    /**
+     * 添加订阅
+     */
+    public void addDisposable(Disposable mDisposable) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = new CompositeDisposable();
+        }
+        mCompositeDisposable.add(mDisposable);
+    }
+
+    /**
+     * 取消所有订阅
+     */
+    public void clearDisposable() {
+        if (mCompositeDisposable != null) {
+            mCompositeDisposable.clear();
+        }
+    }
+
     /**
      * 短暂显示Toast提示(来自String)
      **/
@@ -292,6 +315,7 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
         super.onDestroyView();
         LogUtils.loge("baseFragment onDestroyView");
         ButterKnife.unbind(this);
+        clearDisposable();
         if (mPresenter != null) {
             mPresenter.onDestroy();
         }

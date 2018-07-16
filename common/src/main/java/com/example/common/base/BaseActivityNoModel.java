@@ -7,19 +7,18 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
+import com.example.common.BuildConfig;
 import com.example.common.R;
 import com.example.common.baseapp.AppManager;
 import com.example.common.baserx.RxManager;
 import com.example.common.commonutils.TUtil;
 import com.example.common.commonutils.ToastUtil;
 import com.example.common.commonwidget.StatusBarCompat;
-import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
@@ -35,40 +34,8 @@ import io.reactivex.disposables.Disposable;
  */
 
 /***************使用例子*********************/
-//1.mvp模式
-//public class SampleActivity extends BaseActivity<NewsChanelPresenter, NewsChannelModel>implements NewsChannelContract.View {
-//    @Override
-//    public int getLayoutId() {
-//        return R.layout.activity_news_channel;
-//    }
-//
-//    @Override
-//    public void initPresenter() {
-//        mPresenter.setVM(this, mModel);
-//    }
-//
-//    @Override
-//    public void initView() {
-//    }
-//}
-//2.普通模式
-//public class SampleActivity extends BaseActivity {
-//    @Override
-//    public int getLayoutId() {
-//        return R.layout.activity_news_channel;
-//    }
-//
-//    @Override
-//    public void initPresenter() {
-//    }
-//
-//    @Override
-//    public void initView() {
-//    }
-//}
-public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel> extends RxAppCompatActivity implements View.OnClickListener,BaseView {
+public abstract class BaseActivityNoModel<T extends BasePresenterNoModel> extends RxAppCompatActivity implements View.OnClickListener, BaseView {
     public T mPresenter;
-    public E mModel;
     public Context mContext;
     public RxManager mRxManager;
     private boolean isConfigChange = false;
@@ -90,7 +57,6 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         ButterKnife.bind(this);
         mContext = this;
         mPresenter = TUtil.getT(this, 0);
-        mModel = TUtil.getT(this, 1);
         if (mPresenter != null) {
             mPresenter.mContext = this;
             mPresenter.mActivity = this;
@@ -224,33 +190,14 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         tipDialog.show();
     }
 
-    /**
-     * 添加订阅
-     */
-    public void addDisposable(Disposable mDisposable) {
-        if (mCompositeDisposable == null) {
-            mCompositeDisposable = new CompositeDisposable();
-        }
-        mCompositeDisposable.add(mDisposable);
-    }
-
-    /**
-     * 取消所有订阅
-     */
-    public void clearDisposable() {
-        if (mCompositeDisposable != null) {
-            mCompositeDisposable.clear();
-        }
-    }
-
     @Override
     public void showLoading(String title) {
-
+        startProgressDialog(title);
     }
 
     @Override
     public void stopLoading() {
-
+        stopProgressDialog();
     }
 
     @Override
@@ -384,17 +331,42 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
             tipDialog.dismiss();
         }
 
+        //debug版本不统计crash
+        if (!BuildConfig.LOG_DEBUG) {
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        //debug版本不统计crash
+        if (!BuildConfig.LOG_DEBUG) {
+        }
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         isConfigChange = true;
+    }
+
+    /**
+     * 添加订阅
+     */
+    public void addDisposable(Disposable mDisposable) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = new CompositeDisposable();
+        }
+        mCompositeDisposable.add(mDisposable);
+    }
+
+    /**
+     * 取消所有订阅
+     */
+    public void clearDisposable() {
+        if (mCompositeDisposable != null) {
+            mCompositeDisposable.clear();
+        }
     }
 
     @Override
