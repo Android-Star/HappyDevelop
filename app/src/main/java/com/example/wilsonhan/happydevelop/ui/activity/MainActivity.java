@@ -1,4 +1,4 @@
-package com.example.wilsonhan.happydevelop.net.ui.activity;
+package com.example.wilsonhan.happydevelop.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

@@ -8,8 +8,6 @@
 
     <application
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
-    </application>
+        android:theme="@style/AppTheme"></application>
 
 </manifest>

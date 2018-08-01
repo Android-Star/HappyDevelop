@@ -1,4 +1,6 @@
-package com.example.wilsonhan.happydevelop.net.ui;
+package com.example.wilsonhan.happydevelop.ui;
 
-public class SecondActivity {
+import android.support.v7.app.AppCompatActivity;
+
+public class SecondActivity extends AppCompatActivity{
 }
