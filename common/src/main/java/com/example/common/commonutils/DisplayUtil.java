@@ -43,7 +43,7 @@ public class DisplayUtil {
 	 *            （DisplayMetrics类中属性density）
 	 * @return
 	 */
-	public static int dip2px( float dipValue) {
+	public static int dp2px( float dipValue) {
 		final float scale = BaseApplication.getAppContext().getResources().getDisplayMetrics().density;
 		return (int) (dipValue * scale + 0.5f);
 	}
