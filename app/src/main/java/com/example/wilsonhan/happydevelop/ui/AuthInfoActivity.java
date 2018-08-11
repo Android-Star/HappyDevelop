@@ -1,4 +1,4 @@
-package com.example.wilsonhan.happydevelop.ui.activity;
+package com.example.wilsonhan.happydevelop.ui;
 
 import android.Manifest;
 import android.content.Intent;

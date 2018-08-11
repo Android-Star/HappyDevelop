@@ -1,7 +1,11 @@
 package com.example.wilsonhan.happydevelop.net;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import com.example.wilsonhan.happydevelop.R;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -51,5 +55,4 @@ public abstract class GiraffeObserver<T> implements Observer<T> {
 
 
     public abstract void onError(ExceptionHandler.ResponseThrowable e);
-
 }
