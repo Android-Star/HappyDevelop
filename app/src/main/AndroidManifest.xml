@@ -4,16 +4,16 @@
     package="com.example.wilsonhan.happydevelop">
 
     <application
+        android:name=".app.AppApplication"
         android:allowBackup="false"
         android:anyDensity="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".app.AppApplication"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
         <activity
-            android:name=".ui.AuthInfoActivity"
+            android:name=".ui.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.AuthInfoActivity" />
     </application>
 
 </manifest>
