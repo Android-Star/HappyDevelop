@@ -5,7 +5,7 @@ android {
     buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.example.wilsonhan.happydevelop"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -21,6 +21,10 @@ android {
     packagingOptions {//加上这写代码
         pickFirst 'META-INF/*'
     }
+    defaultConfig {
+        // Enabling multidex support.
+        multiDexEnabled true
+    }
 }
 
 repositories {
@@ -31,6 +35,7 @@ repositories {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation project(':common')
     //图表

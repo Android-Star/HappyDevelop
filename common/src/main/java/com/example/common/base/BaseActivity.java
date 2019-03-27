@@ -1,6 +1,9 @@
 package com.example.common.base;
 
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.ComponentCallbacks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -9,6 +12,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -74,6 +78,10 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     private boolean isConfigChange = false;
     protected QMUITipDialog tipDialog;
     private CompositeDisposable mCompositeDisposable;
+    private static final float DESIGN_DP = 375f;
+
+    private static float sNonCompatDensity = 0;
+    private static float sNonCompatScaledDensity = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,6 +106,35 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         this.initPresenter();
         this.initView();
         this.setListener();
+    }
+
+    private static void setCustomDensity(Activity activity, final Application application) {
+        final DisplayMetrics appDisplayMetrics = application.getResources().getDisplayMetrics();
+        if (sNonCompatDensity == 0) {
+            sNonCompatDensity = appDisplayMetrics.density;
+            sNonCompatScaledDensity = appDisplayMetrics.scaledDensity;
+            application.registerComponentCallbacks(new ComponentCallbacks() {
+                @Override public void onConfigurationChanged(Configuration newConfig) {
+                    if (newConfig != null && newConfig.fontScale > 0) {
+                        sNonCompatScaledDensity = application.getResources().getDisplayMetrics().scaledDensity;
+                    }
+                }
+
+                @Override public void onLowMemory() {
+
+                }
+            });
+        }
+        final float targetDensity = appDisplayMetrics.widthPixels / DESIGN_DP;
+        final float targetScaledDensity = targetDensity * (sNonCompatScaledDensity / sNonCompatDensity);
+        final int targetDensityDpi = (int) (160 * targetDensity);
+        appDisplayMetrics.density = targetDensity;
+        appDisplayMetrics.scaledDensity = targetScaledDensity;
+        appDisplayMetrics.densityDpi = targetDensityDpi;
+        final DisplayMetrics activityDisplayMetrics = activity.getResources().getDisplayMetrics();
+        activityDisplayMetrics.density = targetDensity;
+        activityDisplayMetrics.scaledDensity = targetScaledDensity;
+        activityDisplayMetrics.densityDpi = targetDensityDpi;
     }
 
     @Override
