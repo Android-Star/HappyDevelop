@@ -5,6 +5,9 @@
     <color name="colorAccent">#FF4081</color>
 
 
+    <color name="colorTipDigBg">#FBFBFB</color>
     <color name="main_small_color">#78A3FF</color>
     <color name="main_hard_color">#2B68E9</color>
+    <color name="colorMain">#FF51AAFF</color>
+    <color name="colorLightBlue">#FF51AAFF</color>
 </resources>

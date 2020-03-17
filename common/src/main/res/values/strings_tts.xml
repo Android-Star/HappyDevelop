@@ -1,0 +1,119 @@
+<resources>
+  <array name="tts_wake_up">
+    <item>好的,我在</item>
+    <item>小朋友好</item>
+    <item>找我干啥</item>
+    <item>小主人,你好</item>
+    <item>主人好</item>
+  </array>
+  <array name="tts_no_say">
+    <item>小伙伴再见，有事再喊我哦。</item>
+    <item>什么也没听见，拜拜。</item>
+    <item>你好像没有说话，那我先去休息了。</item>
+    <item>没有听见你说话呢，我先去休息啦。</item>
+    <item>没有听见你说话，小伙伴先再见啦。</item>
+  </array>
+  <string name="tts_not_support">对不起,我还不明白你说的,换个其他问题吧</string>
+  <string name="tts_asr_no_net">好像没有连接网络哦,请先帮我联网吧</string>
+  <string name="tts_exit">好的,那我先退下了,有需要在喊我</string>
+  <string name="tts_ok">好的</string>
+  <string name="tts_no_app">没有找到这个应用</string>
+  <!--music-->
+  <string name="tts_music_no_find_song">实在找不到，请您换个试试吧</string>
+  <string name="tts_music_pause">已暂停</string>
+  <string name="tts_music_stop">已退出</string>
+  <string name="tts_music_next">好的</string>
+  <string name="tts_music_prev">好的</string>
+  <string name="tts_music_play_news">好的</string>
+  <string name="tts_music_mode_once">好的，单曲播放</string>
+  <string name="tts_music_mode_single">好的，单曲循环</string>
+  <string name="tts_music_mode_order">好的，顺序播放</string>
+  <string name="tts_music_mode_list">好的，循环播放</string>
+  <string name="tts_music_mode_random">好的，随机播放</string>
+  <string name="tts_music_only_one_song">抱歉,播放列表中只有一首歌曲</string>
+  <string name="tts_music_no_song">抱歉,播放列表中没有歌曲</string>
+  <string name="tts_music_song_name">当前播放的是%1$s的%2$s</string>
+  <string name="tts_music_song_name2">当前播放的是%1$s</string>
+  <string name="tts_music_now_play_news">当前播放的是新闻节目</string>
+  <string name="tts_music_collect_success">好的,马上为您收藏</string>
+  <string name="tts_music_collect_fail">收藏失败</string>
+  <string name="tts_music_cancel_collect_success">好的,已经为你取消收藏</string>
+  <string name="tts_music_cancel_collect_fail">取消收藏失败</string>
+  <string name="tts_music_have_collected">歌曲已经收藏</string>
+  <string name="tts_music_not_collected">歌曲未收藏</string>
+  <string name="tts_music_bookmark_success">好的，已收藏</string>
+  <string name="tts_music_unbookmark_success">好的，已取消收藏</string>
+  <string name="tts_music_bookmark_fail">抱歉,操作失败,请稍后再试</string>
+  <string name="tts_music_unsupport_collect">抱歉,暂不支持收藏功能</string>
+  <string name="tts_music_unsupport">抱歉,暂不支持该功能</string>
+  <string name="tts_music_not_support">抱歉,您说的暂不支持</string>
+  <string name="tts_video_not_find">抱歉,没有找到相关视频</string>
+
+  <array name="tts_music_play_music">
+    <item>音乐马上开始，%1$s</item>
+    <item>好的，这就为你播放，%1$s</item>
+    <item>好的，一起来听，%1$s</item>
+    <item>好听的歌声这就来，%1$s</item>
+    <item>为你播放好听的音乐，%1$s</item>
+    <item>马上为你播放，%1$s</item>
+    <item>开始为你播放，%1$s</item>
+    <item>一起欣赏歌声，%1$s</item>
+    <item>为你挑选了，%1$s</item>
+  </array>
+
+  <array name="tts_music_play_audio">
+    <item>为你播放，%1$s</item>
+    <item>一起来听，%1$s</item>
+    <item>这就为你播放，%1$s</item>
+    <item>好的，为你带来，%1$s</item>
+    <item>开始为你播放，%1$s</item>
+    <item>为你挑选了，%1$s</item>
+    <item>开始为你播放，%1$s</item>
+    <item>马上为你播放，%1$s</item>
+    <item>精彩内容马上开始，%1$s</item>
+  </array>
+
+
+  <array name="tts_music_play_answer">
+    <item>好的</item>
+    <item>没问题</item>
+    <item>来了来了</item>
+    <item>遵旨</item>
+  </array>
+  <string name="tts_get_weather_fail">抱歉,没有查询到天气信息</string>
+  <string name="tts_set_alarm_fail">抱歉,设置闹钟失败</string>
+  <string name="tts_set_remind_fail">抱歉,设置提醒失败</string>
+  <string name="tts_set_alarm_success0">好的,已将你的闹钟设为%1$s%2$d点%3$d分</string>
+  <string name="tts_set_alarm_query">请问设置什么时间的闹钟呢</string>
+  <string name="tts_set_alarm_success1">好的,已将你的闹钟设为%1$s%2$d点整</string>
+  <string name="tts_set_remind_success0">好的,已将你的提醒设为%1$d点%2$d分</string>
+  <string name="tts_set_remind_success1">好的,已将你的提醒设为%1$d点整</string>
+  <string name="tts_show_alarm_empty">主人,当前没有设置闹钟哦</string>
+  <string name="tts_show_alarm_empty0">闹钟列表为空</string>
+  <string name="tts_show_alarm_success">主人,为您找到%1$d个闹钟</string>
+  <string name="tts_set_alarm_double">主人,已经设置过这个闹钟了</string>
+  <string name="tts_remove_all_alarm">已经删除全部闹钟</string>
+  <string name="tts_remove_alarm_query">主人,要删除第几个闹钟呢</string>
+  <string name="tts_remove_alarm_success0">主人,已为您删除第%1$d个闹钟</string>
+  <string name="tts_wrong_select_alarm">主人,请选择正确的闹钟哦</string>
+  <string name="tts_remove_alarm_success1">好的,已为您删除%1$s%2$d点%3$d分的闹钟</string>
+  <string name="tts_remove_alarm_success2">好的,已为您删除%1$s%2$d点整的闹钟</string>
+  <string name="tts_act_volume_increase">音量已增加</string>
+  <string name="tts_act_volume_increase_max">音量已调到上限</string>
+  <string name="tts_act_volume_decrease">音量已减小</string>
+  <string name="tts_act_volume_decrease_min">音量已调到最小</string>
+  <string name="tts_act_volume_percent">好的,音量已调到%1$d</string>
+  <string name="tts_act_volume_resume">音量已恢复</string>
+  <string name="tts_act_volume_not_mute">当前不是静音状态</string>
+
+  <string name="tts_act_bright_increase">亮度已调高</string>
+  <string name="tts_act_bright_increase_max">亮度已调到最高</string>
+  <string name="tts_act_bright_decrease">亮度已调低</string>
+  <string name="tts_act_bright_decrease_min">亮度已调到最低</string>
+  <string name="tts_act_bright_percent">亮度已经设为百分之%1$d</string>
+  <string name="tts_act_change_male_voice">已切换为男声</string>
+  <string name="tts_act_change_female_voice">已切换为女声</string>
+  <string name="tts_chat_error">抱歉,服务器开小差啦,我们换个话题聊吧</string>
+
+  <string name="tts_welcome_vpr">%1$s你好</string>
+</resources>
